@@ -28,6 +28,7 @@ open class SKPhotoBrowser: UIViewController {
     
     // appearance
     fileprivate let bgColor: UIColor = SKPhotoBrowserOptions.backgroundColor
+    fileprivate let autoHideControls: Bool = SKPhotoBrowserOptions.autoHideControls
     // animation
     let animator: SKAnimator = .init()
     
@@ -333,6 +334,10 @@ public extension SKPhotoBrowser {
         cancelControlHiding()
         // start
         controlVisibilityTimer = Timer.scheduledTimer(timeInterval: autoHideControllsfadeOutDelay, target: self, selector: #selector(SKPhotoBrowser.hideControls(_:)), userInfo: nil, repeats: false)
+        
+        if self.autoHideControls {
+            controlVisibilityTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(SKPhotoBrowser.hideControls(_:)), userInfo: nil, repeats: false)
+        }
     }
     
     func hideControls() {
