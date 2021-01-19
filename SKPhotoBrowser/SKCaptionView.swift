@@ -66,6 +66,10 @@ private extension SKCaptionView {
         photoLabel.shadowOffset = CGSize(width: 0.0, height: 1.0)
         photoLabel.text = photo?.caption
 
+        if #available(iOS 10.0, *) {
+            photoLabel.adjustsFontForContentSizeCategory = SKCaptionOptions.adjustsFontForContentSizeCategory
+        }
+
         addSubview(photoLabel)
     }
 }
