@@ -70,6 +70,7 @@ public struct SKCaptionOptions {
     public static var font: UIFont = .systemFont(ofSize: 17.0)
     public static var backgroundColor: UIColor = .clear
     public static var captionLocation: CaptionLocation = .basic
+    public static var adjustsFontForContentSizeCategory: Bool = false
 }
 
 public struct SKToolbarOptions {
